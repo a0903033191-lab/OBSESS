@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="icon" type="image/png" href="images/2160x.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OBSESS｜Merch</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.7;
+  position:relative;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ===== Background ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(179,0,0,.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(179,0,0,.05), transparent 45%);
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* ===== Header ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 8vw;
+  border-bottom:1px solid #1a1a1a;
+}
+header h1{
+  font-size:1.4rem;
+  letter-spacing:.2em;
+  font-weight:600;
+  text-transform:uppercase;
+}
+nav a{
+  margin-left:1.5rem;
+  font-size:.85rem;
+  opacity:.7;
+  transition:.3s;
+}
+nav a:hover{opacity:1;color:#b30000;}
+
+/* ===== Hero ===== */
+.page-hero{
+  padding:6rem 8vw 4rem;
+  text-align:center;
+}
+.page-hero h2{
+  font-size:clamp(2.6rem,7vw,4rem);
+  letter-spacing:.4em;
+  margin-bottom:1rem;
+}
+.page-hero p{
+  font-size:.9rem;
+  opacity:.55;
+}
+
+/* ===== Merch Grid ===== */
+.merch-section{
+  padding:3rem 8vw 6rem;
+}
+.merch-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:2.5rem;
+}
+
+/* ===== Merch Card ===== */
+.merch-card{
+  background:#0f0f0f;
+  border:1px solid #1c1c1c;
+  border-radius:8px;
+  overflow:hidden;
+  transition:.4s ease;
+}
+.merch-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
+}
+.merch-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+.merch-info{
+  padding:1.2rem;
+  text-align:center;
+}
+.merch-info h3{
+  font-size:.95rem;
+  letter-spacing:.15em;
+  margin-bottom:.4rem;
+}
+.merch-info p{
+  font-size:.8rem;
+  opacity:.6;
+  margin-bottom:.8rem;
+}
+.merch-info span{
+  font-size:.85rem;
+  letter-spacing:.1em;
+  color:#b30000;
+}
+
+/* ===== Slider ===== */
+.slider-wrapper{
+  position:relative;
+}
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  color:#fff;
+  border:none;
+  font-size:1.5rem;
+  padding:.3rem .7rem;
+  cursor:pointer;
+  opacity:0;
+  transition:.3s;
+}
+.slider-btn.prev{left:8px;}
+.slider-btn.next{right:8px;}
+.merch-slider:hover .slider-btn{
+  opacity:1;
+}
+
+/* ===== Centered Row for 3 items ===== */
+.merch-row-centered{
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  margin-top:2rem;
+  flex-wrap:wrap;
+}
+
+/* ===== 置中三個商品大小與 Grid 一致 ===== */
+.merch-row-centered .merch-card {
+  width: 240px; /* 與 grid 最小尺寸一致 */
+  flex: 0 0 auto;
+}
+.merch-row-centered .merch-card img {
+  aspect-ratio:1/1;
+  width:100%;
+  object-fit:cover;
+}
+
+/* ===== Footer ===== */
+footer{
+  padding:2rem 8vw;
+  font-size:.75rem;
+  opacity:.45;
+  border-top:1px solid #1a1a1a;
+  text-align:center;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  header{flex-direction:column;gap:1rem;}
+  nav{display:flex;flex-wrap:wrap;justify-content:center;}
+  .merch-row-centered{gap:1rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>OBSESS</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="album.html">Music</a>
+    <a href="video.html">Video</a>
+    <a href="merch.html">Merch</a>
+    <a href="media.html">Media</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>MERCH</h2>
+  <p>Official Merchandise by OBSESS</p>
+</section>
+
+<section class="merch-section">
+
+  <!-- 原本 Grid -->
+  <div class="merch-grid">
+
+    <div class="merch-card">
+      <img src="images/2406040282324600.jpg">
+      <div class="merch-info">
+        <h3>OBSESS_2024 龍年限定毛巾《龍 Time No 喜》</h3>
+        <p>在龍年，卻仍然沒有找到一條喜歡的毛巾。</p>
+        <span>NT$ 650</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <img src="images/490144657_17866463379361284_2990136976800420358_n.jpg">
+      <div class="merch-info">
+        <h3>OBSESS_2025 蛇年限定毛巾《May I help you 蛇》</h3>
+        <p>今天要衣服，還是毛巾呢？</p>
+        <span>NT$ 650</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <img src="images/2406040282326173.jpg">
+      <div class="merch-info">
+        <h3>你現在去生火</h3>
+        <h3>徽章套組</h3>
+        <p>以全金屬製作徽章</p>
+        <span>NT$ 500</span>
+      </div>
+    </div>
+
+    <!-- Slider Merch -->
+    <div class="merch-card merch-slider"
+      data-images='[
+        "images/2504100561873200.jpg",
+        "images/2504100561873376.jpg",
+        "images/2504100561873457.jpg"
+      ]'>
+      <div class="slider-wrapper">
+        <button class="slider-btn prev">‹</button>
+        <img src="images/2504100561873200.jpg">
+        <button class="slider-btn next">›</button>
+      </div>
+      <div class="merch-info">
+        <h3>OBSESS_2025 蛇年限定短T《May I help you 蛇》</h3>
+        <p>今天要衣服，還是毛巾呢？</p>
+        <span>NT$ 1000</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 三個置中商品 -->
+  <div class="merch-row-centered">
+    <div class="merch-card">
+      <img src="images/pain_made_us.jpg" alt="OBSESS Album">
+      <div class="merch-info">
+        <h3>OBSESS 痛苦造就了我們/PAIN;US 專輯</h3>
+        <p>比起快樂的，我們對於難過的、痛苦的、悲傷的卻更有感觸，</p>
+        <p>這也是為什麼悲傷使我們成長，而痛苦造就了我們</p>
+        <span>NT$ 398</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <img src="images/800x.jpg" alt="OBSESS Album2">
+      <div class="merch-info">
+        <h3>OBSESS Rise In Arms 專輯</h3>
+        <p>你曾在十字路口徬徨，想把所有夢想拋諸腦後，只為迎合世俗的期待嗎？</p>
+        <p>除了那些＂憤怒的窘境＂與＂悲傷的低鳴＂外，你將會聽（看）出，更深層的一面。</p>
+        <span>NT$ 320</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <img src="images/3860x.jpg" alt="OBSESS Album3">
+      <div class="merch-info">
+        <h3>OBSESS Tragic & Fantastic 專輯</h3>
+        <p>以全新的敘述手法，描繪出這個既悲慘又完美的世界！</p>
+        <p>首張全英文創作專輯：《Tragic & Fantastic》正式推出！</p>
+        <span>NT$ 215</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 OBSESS
+</footer>
+
+<script>
+document.querySelectorAll('.merch-slider').forEach(slider => {
+  const images = JSON.parse(slider.dataset.images);
+  const img = slider.querySelector('img');
+  const prev = slider.querySelector('.prev');
+  const next = slider.querySelector('.next');
+  let index = 0;
+
+  prev.addEventListener('click', e => {
+    e.stopPropagation();
+    index = (index - 1 + images.length) % images.length;
+    img.src = images[index];
+  });
+
+  next.addEventListener('click', e => {
+    e.stopPropagation();
+    index = (index + 1) % images.length;
+    img.src = images[index];
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="icon" type="image/png" href="images/2160x.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OBSESS｜Media</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.7;
+}
+
+/* ===== Background Hero ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://scontent.fkhh1-1.fna.fbcdn.net/v/t39.30808-6/577993286_1395924265228796_7676218363665740497_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Xx8qeS-kMQEQ7kNvwEAcKSk&_nc_oc=AdkQtVQXEXzao3ia_bVcbzCB8T_TjbUlZAdyPdlMlU8fEhZTgxM7NHxZI6JHbQM60yQ&_nc_zt=23&_nc_ht=scontent.fkhh1-1.fna&_nc_gid=pQ46mdBYEeM1jSiUbY-KUA&oh=00_AfoV7PJpE63gImVC_lAfZobuEozIwIfnQzHjfNpyDaW3dQ&oe=69607BA4");
+  background-size: cover;
+  background-position: center center;
+  filter: brightness(0.35) saturate(1.3);
+  z-index: -1;
+}
+
+/* ===== 全域 a 樣式 ===== */
+a { text-decoration:none; color:inherit; }
+
+    /* ===== Base ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #0b0b0b; color: #eaeaea; line-height: 1.7; scroll-behavior: smooth; }
+    a { color: #eaeaea; text-decoration: none; }
+
+    /* ===== Header ===== */
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 8vw; border-bottom: 1px solid #1a1a1a; }
+    header h1 { font-size: 1.4rem; letter-spacing: 0.2em; font-weight: 600; text-transform: uppercase; }
+    nav a { margin-left: 1.5rem; font-size: 0.85rem; opacity: 0.7; }
+    nav a:hover { opacity: 1; }
+
+/* ===== Hero ===== */
+.page-hero{
+  padding:6rem 8vw 4rem;
+  text-align:center;
+}
+.page-hero h2{
+  font-size:clamp(2.8rem,7vw,4.5rem);
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  color:#fff;
+}
+.page-hero p{
+  font-size:.95rem;
+  opacity:.9;
+  max-width:560px;
+  margin:0 auto;
+  color:#fff;
+}
+
+/* ===== Media Grid ===== */
+.top-cards{
+  padding:0 8vw;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2.4rem;
+  margin-bottom:2.4rem;
+}
+.bottom-cards{
+  display:flex;
+  justify-content:center;
+  gap:2.4rem;
+  flex-wrap:wrap;
+  padding:0 8vw 6rem;
+}
+
+/* ===== Media Card ===== */
+.media-card{
+  position:relative;
+  display:flex;
+  gap:1.4rem;
+  align-items:center;
+  padding:2rem 1.8rem;
+  background: rgba(0,0,0,0.7);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  transition: transform .35s ease, box-shadow .35s ease, opacity .6s ease;
+  opacity:0;
+  transform: translateY(40px);
+}
+.media-card.show{
+  opacity:1;
+  transform: translateY(0);
+}
+.media-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 25px 60px rgba(0,0,0,0.85);
+}
+.media-card::after{
+  content:"";
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:-26px;
+  height:56px;
+  background:radial-gradient(ellipse at center, rgba(179,0,0,.55), rgba(179,0,0,0) 70%);
+  opacity:0;
+  transition:opacity .35s ease;
+  pointer-events:none;
+}
+.media-card:hover::after{opacity:1;}
+
+/* ===== Icon ===== */
+.media-icon{
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  color:#fff;
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+
+/* ===== Text ===== */
+.media-text h3{
+  font-size:1.1rem;
+  letter-spacing:.1em;
+  margin-bottom:.3rem;
+  color:#fff;
+}
+.media-text p{
+  font-size:.85rem;
+  opacity:.8;
+  color:#eee;
+}
+
+/* ===== Footer ===== */
+footer{
+  padding:2rem 8vw;
+  font-size:.75rem;
+  opacity:.6;
+  border-top:1px solid #1a1a1a;
+  text-align:center;
+}
+
+@media(max-width:768px){
+  header{flex-direction:column;gap:1rem;}
+  .page-hero{padding:4rem 5vw 3rem;}
+  .media-card{flex-direction:column;align-items:center;text-align:center;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>OBSESS</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="album.html">Music</a>
+    <a href="video.html">Video</a>
+    <a href="merch.html">Merch</a>
+    <a href="media.html">Media</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>Media</h2>
+  <p>在各大平台追蹤 OBSESS，收聽音樂、觀看影片，掌握最新動態。</p>
+</section>
+
+<section>
+  <div class="top-cards">
+    <a class="media-card" href="https://youtube.com/@obsessofficialtw?si=PyhdTVEIsMngFv3K" target="_blank">
+      <div class="media-icon">▶</div>
+      <div class="media-text"><h3>YouTube</h3><p>Live Performance · Official MV</p></div>
+    </a>
+    <a class="media-card" href="https://www.instagram.com/obsess_official" target="_blank">
+      <div class="media-icon">◎</div>
+      <div class="media-text"><h3>Instagram</h3><p>最新動態 · 演出日常</p></div>
+    </a>
+    <a class="media-card" href="https://www.facebook.com/OBSESS.TW" target="_blank">
+      <div class="media-icon">f</div>
+      <div class="media-text"><h3>Facebook</h3><p>官方貼文 · 社群互動</p></div>
+    </a>
+    <a class="media-card" href="https://www.threads.com/@obsess_official" target="_blank">
+      <div class="media-icon">@</div>
+      <div class="media-text"><h3>Threads</h3><p>快速分享 · 社群討論</p></div>
+    </a>
+  </div>
+
+  <div class="bottom-cards">
+    <a class="media-card" href="https://open.spotify.com/artist/1CnX88uQKiTPRNeFInBey9" target="_blank">
+      <div class="media-icon">♫</div>
+      <div class="media-text"><h3>Spotify</h3><p>官方串流 · EP / Tracks</p></div>
+    </a>
+    <a class="media-card" href="https://kkbox.fm/1p0vzc" target="_blank">
+      <div class="media-icon">♪</div>
+      <div class="media-text"><h3>KKBOX</h3><p>音樂平台 · 全作品</p></div>
+    </a>
+    <a class="media-card" href="https://streetvoice.com/OBSESS/songs/" target="_blank">
+      <div class="media-icon">SV</div>
+      <div class="media-text"><h3>StreetVoice</h3><p>獨立音樂 · 支持 OBSESS</p></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 OBSESS
+</footer>
+
+<script>
+// ===== 進場動畫 =====
+const cards = document.querySelectorAll('.media-card');
+cards.forEach((card,i)=>{
+  setTimeout(()=>{ card.classList.add('show'); }, i*150);
+});
+</script>
+
+</body>
+</html>

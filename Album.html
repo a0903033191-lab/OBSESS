@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="icon" type="image/png" href="images/2160x.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OBSESS｜Album</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ===== Header ===== */
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 8vw; border-bottom: 1px solid #1a1a1a; }
+    header h1 { font-size: 1.4rem; letter-spacing: 0.2em; font-weight: 600; text-transform: uppercase; }
+    nav a { margin-left: 1.5rem; font-size: 0.85rem; opacity: 0.7; }
+    nav a:hover { opacity: 1; }
+
+/* ===== Hero ===== */
+.page-hero{
+  padding:6.5rem 8vw 5rem;
+  text-align:center;
+}
+.page-hero h2{
+  font-size:clamp(2.8rem,6vw,4.2rem);
+  letter-spacing:.4em;
+  margin-bottom:1rem;
+}
+.page-hero p{
+  font-size:.9rem;
+  opacity:.55;
+}
+
+/* ===== Section ===== */
+.album-section{
+  padding:4rem 8vw;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.8s ease;
+}
+.album-section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.album-section h3{
+  font-size:1.1rem;
+  letter-spacing:.45em;
+  text-align:center;
+  margin-bottom:1.2rem;
+}
+
+.album-section .line{
+  width:40px;
+  height:2px;
+  background:#b30000;
+  margin:0 auto 2.8rem;
+  opacity:.7;
+}
+
+/* ===== Grid ===== */
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2.8rem;
+}
+
+/* ===== Card ===== */
+.album-card{
+  position:relative;
+  background:#0f0f0f;
+  border:1px solid #1c1c1c;
+  padding:1.4rem;
+  transition:.4s ease;
+  cursor:pointer;
+}
+.album-card iframe{
+  width:100%;
+  height:360px;
+  border:none;
+  border-radius:6px;
+  background:#000;
+}
+.album-card::after{
+  content:"";
+  position:absolute;
+  left:18%;
+  right:18%;
+  bottom:-30px;
+  height:60px;
+  background:radial-gradient(
+    ellipse at center,
+    rgba(179,0,0,.55),
+    rgba(179,0,0,0) 70%
+  );
+  opacity:0;
+  transition:.4s;
+  pointer-events:none;
+}
+.album-grid:hover .album-card{
+  opacity:.45;
+}
+.album-grid:hover .album-card:hover{
+  opacity:1;
+  transform:translateY(-10px);
+  box-shadow:0 25px 60px rgba(0,0,0,.85);
+}
+.album-grid:hover .album-card:hover::after{
+  opacity:1;
+}
+
+/* ===== Overlay ===== */
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  backdrop-filter:blur(10px);
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  color:#fff;
+  padding:2rem;
+  gap:1rem;
+  overflow-y:auto;
+  z-index:999;
+  animation:fadeIn .3s ease forwards;
+}
+.overlay img{
+  width:80%;
+  max-width:400px;
+  border-radius:6px;
+  box-shadow:0 0 40px #b30000;
+}
+.overlay h3{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+.overlay p{
+  font-size:1rem;
+  line-height:1.5;
+  max-width:700px;
+}
+.overlay a{
+  margin-top:1rem;
+  display:inline-block;
+  padding:0.6rem 1.2rem;
+  background:#b30000;
+  color:#fff;
+  border-radius:4px;
+  text-decoration:none;
+}
+
+/* ===== Footer ===== */
+footer{
+  padding:3rem 8vw;
+  font-size:.75rem;
+  opacity:.45;
+  border-top:1px solid #1a1a1a;
+  text-align:center;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  header{flex-direction:column;gap:1rem;}
+  nav{display:flex;flex-wrap:wrap;justify-content:center;}
+  .album-card iframe{height:300px;}
+}
+
+/* ===== Overlay fadeIn ===== */
+@keyframes fadeIn {
+  from{opacity:0;}
+  to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>OBSESS</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="album.html">Music</a>
+    <a href="video.html">Video</a>
+    <a href="merch.html">Merch</a>
+    <a href="media.html">Media</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>MUSIC</h2>
+  <p>Official Releases by OBSESS</p>
+</section>
+
+<!-- ===== ALBUM ===== -->
+<section class="album-section">
+  <h3>ALBUM</h3>
+  <div class="line"></div>
+  <div class="album-grid">
+
+    <!-- Rise In Arms -->
+    <div class="album-card" onclick="toggleOverlay(
+        'Rise In Arms',
+        '你願意給自己多少機會去正視自己的夢想?人生總在許多微不足道的小事裡堆積成讓人舉步維艱的藉口。而你是不是也有站在十字路口躊徨不前的時候？是不是也想著乾脆把以往所有的努力都丟棄？從此過著依照「社會規範」「道德倫理」「眾人期待」的生活？！',
+        'https://open.spotify.com/album/2535NCDhtUT4tR8DMgIycU',
+        'https://i.scdn.co/image/ab67616d0000b273ea0ff65eb05b40fae1e6b163'
+      )">
+      <iframe src="https://open.spotify.com/embed/album/2535NCDhtUT4tR8DMgIycU"></iframe>
+    </div>
+
+    <!-- 痛苦造就了我們 -->
+    <div class="album-card" onclick="toggleOverlay(
+        '痛苦造就了我們',
+        '一如往常我們依舊在默默的紀錄著這個世界所發生的故事，可能有你的生活，也有我的遭遇。比起快樂的，我們對於難過的、痛苦的、悲傷的卻更有感觸，這也是為什麼悲傷使我們成長，而痛苦造就了我們。',
+        'https://open.spotify.com/album/34sDo0LfnZH8350YuCWzQG',
+        'https://i.scdn.co/image/ab67616d0000b2731f0f29b107981efb165f2f02'
+      )">
+      <iframe src="https://open.spotify.com/embed/album/34sDo0LfnZH8350YuCWzQG"></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== EP ===== -->
+<section class="album-section">
+  <h3>EP</h3>
+  <div class="line"></div>
+  <div class="album-grid">
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/3097ZtTVmz1kCdjiIER8Fo"></iframe></div>
+  </div>
+</section>
+
+<!-- ===== SINGLES ===== -->
+<section class="album-section">
+  <h3>SINGLES</h3>
+  <div class="line"></div>
+  <div class="album-grid">
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/2h7hlMf2tSX3stCt9Q9LeF"></iframe></div>
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/5zwq6yPikLtE85JiP1Iy8Z"></iframe></div>
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/6Jlu5V567HZLp2lnVL5Zjb"></iframe></div>
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/7yO6uizkP4gIocNF1N6kIH"></iframe></div>
+  </div>
+</section>
+
+<!-- ===== COLLABORATION ===== -->
+<section class="album-section">
+  <h3>COLLABORATION</h3>
+  <div class="line"></div>
+  <div class="album-grid">
+    <div class="album-card"><iframe src="https://open.spotify.com/embed/album/2hw4xdlpOhT8A0lXTcZ6h3"></iframe></div>
+  </div>
+</section>
+
+<!-- ===== Overlay ===== -->
+<div class="overlay" id="overlay" onclick="this.style.display='none'">
+  <img id="overlay-img" src="" alt="Album Cover">
+  <h3 id="overlay-title"></h3>
+  <p id="overlay-desc"></p>
+  <a id="overlay-link" href="#" target="_blank">LISTEN ON SPOTIFY</a>
+</div>
+
+<footer>
+  © 2026 OBSESS
+</footer>
+
+<script>
+// ===== Overlay 功能 =====
+function toggleOverlay(title, desc, link, img){
+  document.getElementById('overlay-title').textContent = title;
+  document.getElementById('overlay-desc').textContent = desc;
+  document.getElementById('overlay-link').href = link;
+  document.getElementById('overlay-img').src = img;
+  document.getElementById('overlay').style.display = 'flex';
+}
+
+// ===== Section 進場動畫 =====
+document.querySelectorAll('.album-section').forEach((sec,i)=>{
+  setTimeout(()=>sec.classList.add('show'), i*200);
+});
+</script>
+
+</body>
+</html>
